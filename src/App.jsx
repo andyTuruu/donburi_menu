@@ -1,37 +1,42 @@
 import "./index.css";
 
-const pizzaData = [
+const donburiData = [
   {
     name: "Oyakodon",
-    ingredients: "Tender chicken thigh, eggs and onion",
+    ingredients:
+      "Succulent chicken thigh simmered with eggs and onions in a savory dashi sauce",
     price: 16,
     photoName: "donburis/Oyakodon.jpg",
     soldOut: false,
   },
   {
     name: "Gyudon",
-    ingredients: "Thinly sliced premium beef and onion in savory-sweet sauce",
+    ingredients:
+      "Thinly sliced premium beef and onions simmered in a rich, sweet-savory soy sauce",
     price: 18,
     photoName: "donburis/Gyudon.jpg",
     soldOut: false,
   },
   {
     name: "Chicken Katsudon",
-    ingredients: "Crisky deep-fried chicken cutlet, eggs and onion",
+    ingredients:
+      "Crispy deep-fried chicken cutlet, gently simmered with eggs and onions in a flavorful broth",
     price: 18,
     photoName: "donburis/Chicken-Katsudon.jpg",
     soldOut: false,
   },
   {
     name: "Eggplant-Don",
-    ingredients: "Thinly sliced eggplant seared and coated with seet soy sauce",
+    ingredients:
+      "Tender eggplant slices pan-seared and glazed with a sweet soy-based sauce",
     price: 14,
     photoName: "donburis/Soy-Glazed-Eggplant.jpg",
     soldOut: false,
   },
   {
     name: "Mapo Tofu",
-    ingredients: "Ground pork and silken tofu",
+    ingredients:
+      "Silky tofu and minced pork stir-fried in a bold, spicy Sichuan-style sauce",
     price: 14,
     photoName: "donburis/Mapo-Tofu.jpg",
     soldOut: true,
@@ -39,7 +44,7 @@ const pizzaData = [
   {
     name: "Tendon",
     ingredients:
-      "Crispy deep-fried shrimp and vegetables drizzled with special sauce",
+      "Crispy tempura shrimp and seasonal vegetables drizzled with a light, umami-rich tempura sauce",
     price: 18,
     photoName: "donburis/Ten-Don.jpg",
     soldOut: false,
@@ -47,14 +52,15 @@ const pizzaData = [
   {
     name: "Poke Bowl",
     ingredients:
-      "Mix of sushi-grade tuna and salmon, marinated with special sauce",
+      "Fresh sushi-grade tuna and salmon, marinated in a house-made soy citrus sauce, topped with avocado and sesame",
     price: 20,
     photoName: "donburis/Poke-Bowl.jpg",
     soldOut: false,
   },
   {
     name: "Unadon",
-    ingredients: "Eel seared over charcoal served with special sauce",
+    ingredients:
+      "Charcoal-grilled eel glazed with a sweet, smoky kabayaki sauce, served over a bed of fluffy rice",
     price: 25,
     photoName: "donburis/Unadon-Eel.jpg",
     soldOut: false,
@@ -70,30 +76,30 @@ function Header() {
 }
 
 function Menu() {
-  const pizzas = pizzaData;
-  const numPizzas = pizzas.length;
+  const donburis = donburiData;
+  const numDonburis = donburis.length;
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      {numPizzas > 0 ? (
+      {numDonburis > 0 ? (
         <>
           <p>
             Experience authentic Japanese cuisine with our selection of 8 rice
-            bowl dishes (donburi). Each dish is crafted with fresh, locally
+            bowl dishes (donburi). Each bowl is crafted with fresh, locally
             sourced or premium imported ingredients from Japan. Each bowl is
             served with comforting miso soup to complete your meal.
             Deliciousness guaranteed!
           </p>
-          <ul className="pizzas">
-            {pizzaData.map((pizza, index) => {
+          <ul className="donburis">
+            {donburiData.map((donburi, index) => {
               return (
-                <Pizza
+                <Donburi
                   key={index}
-                  name={pizza.name}
-                  ingredients={pizza.ingredients}
-                  photoName={pizza.photoName}
-                  price={pizza.price}
-                  soldOut={pizza.soldOut}
+                  name={donburi.name}
+                  ingredients={donburi.ingredients}
+                  photoName={donburi.photoName}
+                  price={donburi.price}
+                  soldOut={donburi.soldOut}
                 />
               );
             })}
@@ -106,9 +112,9 @@ function Menu() {
   );
 }
 
-function Pizza({ name, ingredients, price, photoName, soldOut }) {
+function Donburi({ name, ingredients, price, photoName, soldOut }) {
   return (
-    <li className={`pizza ${soldOut ? "sold-out" : ""}`}>
+    <li className={`donburi ${soldOut ? "sold-out" : ""}`}>
       <img src={photoName} alt={name} />
       <div>
         <h3>{name}</h3>
@@ -122,7 +128,7 @@ function Pizza({ name, ingredients, price, photoName, soldOut }) {
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 11;
-  const closeHour = 24;
+  const closeHour = 20;
   const isOpen = hour >= openHour && hour < closeHour;
 
   return (
