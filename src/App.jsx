@@ -76,8 +76,7 @@ function Header() {
 }
 
 function Menu() {
-  const donburis = donburiData;
-  const numDonburis = donburis.length;
+  const numDonburis = donburiData.length;
   return (
     <main className="menu">
       <h2>Our menu</h2>
@@ -91,17 +90,8 @@ function Menu() {
             Deliciousness guaranteed!
           </p>
           <ul className="donburis">
-            {donburiData.map((donburi, index) => {
-              return (
-                <Donburi
-                  key={index}
-                  name={donburi.name}
-                  ingredients={donburi.ingredients}
-                  photoName={donburi.photoName}
-                  price={donburi.price}
-                  soldOut={donburi.soldOut}
-                />
-              );
+            {donburiData.map((donburi) => {
+              return <Donburi key={donburi.name} {...donburi} />;
             })}
           </ul>
         </>

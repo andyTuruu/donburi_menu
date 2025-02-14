@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
 
+:root {
+  --primary-color: #ff9aa2;
+  --secondary-color: #ffc1cc;
+  --bg-color: #fff5f7;
+  --font-family: "Roboto Mono", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,14 +18,13 @@ html {
 }
 
 body {
-  font-family: "Roboto Mono", sans-serif;
+  font-family: var(--font-family);
   color: #252525;
   font-weight: 400;
-  background-color: #fff5f7;
-  border-bottom: 1.6rem solid #ff9aa2;
+  background-color: var(--bg-color);
+  border-bottom: 1.6rem solid var(--primary-color);
   min-height: 100vh;
-  padding: 3.2rem;
-  padding-bottom: 6rem;
+  padding: 3.2rem 0 6rem;
 }
 
 .container {
@@ -31,15 +37,13 @@ body {
   gap: 4.8rem;
 }
 
-/* *************** */
-
 .header {
   align-self: stretch;
 }
 
 .header h1 {
   /* Non-accessible color */
-  color: #ff9aa2;
+  color: var(--primary-color);
   /* color: #af8602; */
   text-transform: uppercase;
   text-align: center;
@@ -69,8 +73,6 @@ body {
 .header h1::after {
   right: 0;
 }
-
-/* *************** */
 
 .menu {
   display: flex;
@@ -104,6 +106,12 @@ body {
   gap: 4.8rem;
 }
 
+@media (max-width: 600px) {
+  .donburis {
+    grid-template-columns: 1fr;
+  }
+}
+
 .donburi {
   display: flex;
   gap: 3.2rem;
@@ -115,6 +123,7 @@ body {
   aspect-ratio: 1;
   align-self: start;
   transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .donburi img:hover {
@@ -154,8 +163,6 @@ body {
   opacity: 0.8;
 }
 
-/* *************** */
-
 .footer {
   font-size: 1.4rem;
 }
@@ -177,16 +184,14 @@ body {
   padding: 1.4rem 3.2rem;
   cursor: pointer;
   transition: all 0.2s;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 3px rgba(255, 154, 162, 0.5);
 }
 
 .btn:hover {
   background-color: #ff9aa2;
 }
-
-/*
-SPACING SYSTEM (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 128
-
-FONT SIZE SYSTEM (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 /52 / 62 / 74 / 86 / 98
-*/
